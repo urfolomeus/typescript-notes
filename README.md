@@ -18,12 +18,16 @@ notes.ipynb
 
 ## Setup
 
-I use Jupyter notebooks to write interactive notes. In order to use these for TypeScript, I'm using [Deno]() and then leaning on VSCode's Jupyter extension to run in the IDE. See the Deno [docs on Jupyter integration]() for more info.
+I use Jupyter notebooks to write interactive notes. In order to use these for TypeScript, I'm using [Deno](https://docs.deno.com/runtime/) and then leaning on VSCode's Jupyter extension to run in the IDE. See the Deno [docs on Jupyter integration](https://docs.deno.com/runtime/reference/cli/jupyter/) for more info.
 
 ## Running
 
 1. Open the notebook you want to review in VSCode or another Jupyter server.
 2. Run the notebook.
+
+## Starting a new notebook
+
+When starting a new notebook we need to select the kernel to use. See the [Deno Jupyter notes](https://docs.deno.com/runtime/reference/cli/jupyter/#vs-code) for more info.
 
 ## Some helpers
 
