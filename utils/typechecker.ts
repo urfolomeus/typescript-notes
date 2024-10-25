@@ -29,3 +29,27 @@ export async function checkTypeScript(code: string): Promise<void> {
     await Deno.remove(tempFile);
   }
 }
+
+export async function runTypeScript(code: string): Promise<void> {
+  const tempFile = await Deno.makeTempFile({ suffix: '.ts' });
+  try {
+    await Deno.writeTextFile(tempFile, code);
+
+    const command = new Deno.Command('deno', {
+      args: ['run', tempFile],
+      stderr: 'piped',
+    });
+
+    const { stdout, stderr } = await command.output();
+    const output = new TextDecoder().decode(stdout).trim();
+    const errorOutput = new TextDecoder().decode(stderr).trim();
+
+    if (errorOutput) {
+      console.error(errorOutput);
+    } else {
+      console.log(successMessage("Ran without errors... "), output);
+    }
+  } finally {
+    await Deno.remove(tempFile);
+  }
+}
